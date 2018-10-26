@@ -41,9 +41,9 @@ namespace WishList.Controllers
                 return View(model);
             }
 
-          var result =  _userManager.CreateAsync(new ApplicationUser() { Email = model.Email,UserName = model.Email} ,model.Password).Result;
+          var result =  _userManager.CreateAsync(new ApplicationUser() { UserName = model.Email, Email = model.Email} ,model.Password).Result;
 
-            if (result.Succeeded)
+            if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
                 {
@@ -54,7 +54,7 @@ namespace WishList.Controllers
             }
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index","Home");
 
         }
     }
