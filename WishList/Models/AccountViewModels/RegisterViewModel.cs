@@ -23,7 +23,7 @@ namespace WishList.Models.AccountViewModels
         [Required]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        public string ConfirmedPassword { get; set; }
+        public string ConfirmPassword { get; set; }
 
     }
 }
